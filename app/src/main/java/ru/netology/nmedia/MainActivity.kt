@@ -26,12 +26,12 @@ class MainActivity : AppCompatActivity() {
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            shareCount?.text = sharesCalculate(post.share)
+            shareCount.text = sharesCalculate(post.share)
 
             if (post.likedByMe) {
-                likes?.setImageResource(R.drawable.ic_liked)
+                likes.setImageResource(R.drawable.ic_liked)
             }
-            likesCount?.text = post.likes.toString()
+            likesCount.text = post.likes.toString()
 
             root.setOnClickListener {
                 Log.d("MainActivity", "root clicked")
@@ -41,27 +41,27 @@ class MainActivity : AppCompatActivity() {
                 Log.d("MainActivity", "avatar clicked")
             }
 
-            likes?.setOnClickListener {
+            likes.setOnClickListener {
                 Log.d("MainActivity", "like clicked")
                 post.likedByMe = !post.likedByMe
                 likes.setImageResource(
                     if (post.likedByMe) R.drawable.ic_liked else R.drawable.ic_like
                 )
                 if (post.likedByMe) post.likes++ else post.likes--
-                likesCount?.text = post.likes.toString()
+                likesCount.text = post.likes.toString()
             }
 
-            share?.setOnClickListener {
+            share.setOnClickListener {
                 Log.d("MainActivity", "share clicked")
                 post.share++
-                shareCount?.text = sharesCalculate(post.share)
+                shareCount.text = sharesCalculate(post.share)
             }
         }
     }
 
     private fun sharesCalculate(share: Int): String {
         return when {
-            share <= 999 -> share.toString()
+            share in 0..999 -> share.toString()
             share in 1000..999_999 -> {
                 val formatted = share / 1000.0
                 "%.1fK".format(formatted)
