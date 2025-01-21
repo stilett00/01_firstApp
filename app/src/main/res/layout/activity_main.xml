@@ -62,7 +62,7 @@
     app:constraint_referenced_ids="avatar,published,menu" />
 
   <TextView
-    android:id="@+id/post"
+    android:id="@+id/content"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/common_spacing"
@@ -77,10 +77,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:barrierDirection="bottom"
-    app:constraint_referenced_ids="post" />
+    app:constraint_referenced_ids="content" />
 
 <ImageButton
-  android:id="@+id/like"
+  android:id="@+id/likes"
   android:layout_width="48dp"
   android:layout_height="48dp"
   android:layout_margin="@dimen/common_spacing"
@@ -88,7 +88,7 @@
   android:contentDescription="@string/descriotion_heart_image"
   app:layout_constraintStart_toStartOf="parent"
   app:layout_constraintTop_toBottomOf="@id/footer"
-  app:srcCompat="@drawable/heart_outline" />
+  app:srcCompat="@drawable/ic_like" />
 
   <TextView
     android:id="@+id/likesCount"
@@ -96,9 +96,9 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/count_spacing"
     android:text="10"
-    app:layout_constraintTop_toTopOf="@id/like"
-    app:layout_constraintBottom_toBottomOf="@id/like"
-    app:layout_constraintStart_toEndOf="@id/like"
+    app:layout_constraintTop_toTopOf="@id/likes"
+    app:layout_constraintBottom_toBottomOf="@id/likes"
+    app:layout_constraintStart_toEndOf="@id/likes"
     android:textSize="@dimen/count_text_size"
     />
 
