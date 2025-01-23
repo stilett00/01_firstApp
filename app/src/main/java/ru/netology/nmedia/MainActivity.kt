@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb",
             published = "21 мая в 18:36",
             likedByMe = false,
-            share = 1_110_000
+            share = 1_110_000,
+            views = 1200
         )
 
         with(binding) {
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             published.text = post.published
             content.text = post.content
             shareCount.text = numbersConverter(post.share)
+            viewsCount.text = numbersConverter(post.views)
 
             if (post.likedByMe) {
                 likes.setImageResource(R.drawable.ic_liked)
