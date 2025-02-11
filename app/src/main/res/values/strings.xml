@@ -13,4 +13,6 @@
   <string name="error_empty_content">Empty post</string>
   <string name="description_post_like">Save</string>
   <string name="menu_edit">Edit</string>
+  <string name="editing_text">Editing</string>
+  <string name="cancelEditDescription">Cancel editing</string>
 </resources>

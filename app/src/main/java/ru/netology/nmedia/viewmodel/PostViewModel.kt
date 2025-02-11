@@ -6,14 +6,22 @@ import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.repository.PostRepository
 import ru.netology.nmedia.repository.PostRepositoryInMemoryImpl
 
-val empty = Post(
-    id = 0,
-    author = "",
-    content = "",
-    published = "",
-)
+//val empty = Post(
+//    id = 0,
+//    author = "",
+//    content = "",
+//    published = "",
+//)
 
 class PostViewModel : ViewModel() {
+    companion object {
+        val empty = Post(
+            id = 0,
+            author = "",
+            content = "",
+            published = "",
+        )
+    }
     private val repository : PostRepository = PostRepositoryInMemoryImpl()
     val data = repository.getAll()
     val edited = MutableLiveData(empty)

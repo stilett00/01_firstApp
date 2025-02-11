@@ -11,4 +11,6 @@
   <string name="error_empty_content">Пустой пост</string>
   <string name="description_post_like">Сохранить</string>
   <string name="menu_edit">Изменить</string>
+  <string name="editing_text">Редактирование</string>
+  <string name="cancelEditDescription">Отмена редактирования</string>
 </resources>
