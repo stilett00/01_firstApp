@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.cancelEditButton.setOnClickListener {
-            viewModel.edited.value = PostViewModel.empty
+            viewModel.cancelEdit()
             binding.content.setText("")
             binding.content.clearFocus()
             AndroidUtils.hideKeyboard(it)
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.save.setOnClickListener {
             val text = binding.content.text.toString()
-            if (text.isNullOrBlank()) {
+            if (text.isBlank()) {
                 Toast.makeText(
                     this,
                     R.string.error_empty_content,

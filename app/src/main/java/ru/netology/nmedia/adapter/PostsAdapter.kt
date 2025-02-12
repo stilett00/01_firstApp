@@ -31,9 +31,7 @@ class PostsAdapter(
 
         holder.bind(getItem(position))
     }
-
 }
-
 
 
 class PostViewHolder(
@@ -48,14 +46,11 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            shareCount.text = postClickHandler.numbersConverter(post.share)
-            viewsCount.text = postClickHandler.numbersConverter(post.views)
+            share.text = postClickHandler.numbersConverter(post.share)
+            views.text = postClickHandler.numbersConverter(post.views)
 
-            if (post.likedByMe) {
-                likes.setImageResource(R.drawable.ic_liked)
-            } else {
-                likes.setImageResource(R.drawable.ic_like)
-            }
+            likes.isChecked = post.likedByMe
+            likes.text = postClickHandler.numbersConverter(post.likes)
 
             likes.setOnClickListener {
                 onInteractionListener.onLike(post)
@@ -85,8 +80,6 @@ class PostViewHolder(
                     }
                 }.show()
             }
-
-            likesCount.text = postClickHandler.numbersConverter(post.likes)
         }
     }
 }
