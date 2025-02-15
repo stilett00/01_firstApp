@@ -6,13 +6,6 @@ import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.repository.PostRepository
 import ru.netology.nmedia.repository.PostRepositoryInMemoryImpl
 
-//val empty = Post(
-//    id = 0,
-//    author = "",
-//    content = "",
-//    published = "",
-//)
-
 class PostViewModel : ViewModel() {
     companion object {
         val empty = Post(
@@ -34,10 +27,14 @@ class PostViewModel : ViewModel() {
         edited.value = post
     }
 
+    fun cancelEdit() {
+        edited.value = empty
+    }
+
     fun saveContent(content: String) {
         edited.value?.let { editPost ->
             repository.save(editPost.copy(content = content))
         }
-        edited.value = empty
+        cancelEdit()
     }
 }
