@@ -14,4 +14,7 @@
   <string name="editing_text">Редактирование</string>
   <string name="cancelEditDescription">Отмена редактирования</string>
   <string name="description_post_views">Просмотры</string>
+    <string name="chooser_share_post">Пересылаем пост</string>
+    <string name="description_post_save">Сохранить</string>
+    <string name="add_description">Добавить пост</string>
 </resources>
