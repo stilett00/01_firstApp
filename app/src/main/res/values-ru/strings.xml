@@ -17,4 +17,6 @@
     <string name="chooser_share_post">Пересылаем пост</string>
     <string name="description_post_save">Сохранить</string>
     <string name="add_description">Добавить пост</string>
+  <string name="play_button_description">Воспроизвести</string>
+  <string name="description_placeholder">Заглушка видео</string>
 </resources>

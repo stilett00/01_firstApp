@@ -27,4 +27,10 @@
     <item name="android:minHeight">48dp</item>
   </style>
 
+  <style name="Widget.App.Button.Play" parent="Widget.MaterialComponents.Button.OutlinedButton">
+    <item name="android:background">@android:color/transparent</item>
+    <item name="iconTint">#444444</item>
+    <item name="iconSize">48dp</item>
+  </style>
+
 </resources>

@@ -75,7 +75,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:barrierDirection="bottom"
-    app:constraint_referenced_ids="content" />
+    app:constraint_referenced_ids="video_thumbnail" />
 
   <com.google.android.material.button.MaterialButton
     android:id="@+id/likes"
@@ -110,5 +110,35 @@
     app:icon="@drawable/eye"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toBottomOf="@id/footer" />
+
+  <ImageView
+    android:id="@+id/video_thumbnail"
+    android:layout_width="0dp"
+    android:layout_height="200dp"
+    android:scaleType="centerCrop"
+    android:src="@drawable/video_placeholder"
+    android:visibility="gone"
+    android:clickable="true"
+    android:focusable="true"
+    android:contentDescription="@string/description_placeholder"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/content" />
+
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/play_button"
+    style="@style/Widget.App.Button.Play"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    app:icon="@drawable/ic_play_button"
+    android:contentDescription="@string/play_button_description"
+    android:visibility="gone"
+    app:iconGravity="textStart"
+    app:iconPadding="0dp"
+    app:layout_constraintBottom_toBottomOf="@id/video_thumbnail"
+    app:layout_constraintEnd_toEndOf="@id/video_thumbnail"
+    app:layout_constraintStart_toStartOf="@id/video_thumbnail"
+    app:layout_constraintTop_toTopOf="@id/video_thumbnail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
