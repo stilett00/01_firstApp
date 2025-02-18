@@ -31,8 +31,12 @@ class MainActivity : AppCompatActivity() {
 
         val editPostLauncher = registerForActivityResult(NewPostActivity.NewPostContract) { content ->
             content?.let {
-                viewModel.changeContent(it)
-                viewModel.save()
+                if (content != null) {
+                    viewModel.changeContent(content)
+                    viewModel.save()
+                } else {
+                    viewModel.cancelEdit()
+                }
             }
         }
 
