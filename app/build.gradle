@@ -46,4 +46,5 @@ dependencies {
     androidTestImplementation libs.androidx.espresso.core
     implementation libs.androidx.appcompat.v170
     implementation libs.androidx.activity.ktx
+    implementation(libs.gson)
 }
