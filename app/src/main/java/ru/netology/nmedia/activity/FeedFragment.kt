@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.R
+import ru.netology.nmedia.activity.NewPostFragment.Companion.postContent
 import ru.netology.nmedia.adapter.OnInteractionListener
 import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.FragmentFeedBinding
@@ -27,23 +28,6 @@ class FeedFragment : Fragment() {
         val binding = FragmentFeedBinding.inflate(layoutInflater, container, false)
         val viewModel: PostViewModel by activityViewModels()
 
-        val newPostLauncher = registerForActivityResult(NewPostFragment.NewPostContract) { content ->
-
-            content?.let {
-                viewModel.changeContent(it)
-                viewModel.save()
-            }
-        }
-
-        val editPostLauncher = registerForActivityResult(NewPostFragment.NewPostContract) { content ->
-            if (content != null) {
-                viewModel.changeContent(content)
-                viewModel.save()
-            } else {
-                viewModel.cancelEdit()
-            }
-        }
-
         val adapter = PostsAdapter(object : OnInteractionListener {
             override fun onLike(post: Post) {
                 viewModel.likeById(post.id)
@@ -60,7 +44,6 @@ class FeedFragment : Fragment() {
                     type = "text/plain"
                     putExtra(Intent.EXTRA_TEXT, post.content)
                 }
-
                 val chooser = Intent.createChooser(intent, getString(R.string.chooser_share_post))
                 startActivity(chooser)
                 viewModel.share(post.id)
@@ -72,11 +55,16 @@ class FeedFragment : Fragment() {
 
             override fun onEdit(post: Post) {
                 viewModel.edit(post)
-                editPostLauncher.launch(post.content)
+                findNavController().navigate(
+                    R.id.action_feedFragment_to_newPostFragment,
+                    Bundle().apply {
+                        postContent = post.content
+                    }
+                )
             }
-
         }
         )
+
         binding.list.adapter = adapter
         viewModel.data.observe(viewLifecycleOwner) { posts ->
             val newPost = adapter.currentList.size < posts.size

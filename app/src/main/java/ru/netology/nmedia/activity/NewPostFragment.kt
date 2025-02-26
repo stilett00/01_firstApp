@@ -1,12 +1,9 @@
 package ru.netology.nmedia.activity
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -17,7 +14,7 @@ import ru.netology.nmedia.viewmodel.PostViewModel
 class NewPostFragment : Fragment() {
 
     companion object {
-        var Bundle.textArg by StringArg
+        var Bundle.postContent by StringArg
     }
 
     override fun onCreateView(
@@ -28,10 +25,9 @@ class NewPostFragment : Fragment() {
         val binding = FragmentNewPostBinding.inflate(layoutInflater, container, false)
         val viewModel: PostViewModel by activityViewModels()
 
-        arguments?.textArg
-            ?.let {
+        arguments?.postContent?.let {
                 binding.content.setText(it)
-                arguments?.textArg = null
+                arguments?.postContent = null
             }
 
         binding.content.requestFocus()
@@ -45,15 +41,5 @@ class NewPostFragment : Fragment() {
         }
 
         return binding.root
-    }
-
-
-object NewPostContract : ActivityResultContract<String?, String?>() {
-
-    override fun createIntent(context: Context, input: String?) = Intent(context, NewPostFragment::class.java).apply {
-        putExtra(Intent.EXTRA_TEXT, input)
-    }
-
-    override fun parseResult(resultCode: Int, intent: Intent?) = intent?.getStringExtra(Intent.EXTRA_TEXT)
     }
 }
