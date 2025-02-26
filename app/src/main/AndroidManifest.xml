@@ -13,12 +13,16 @@
         android:theme="@style/Theme._01_firstApp"
         tools:targetApi="31">
         <activity
-            android:name=".activity.NewPostActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.AppActivity"
             android:exported="true">
+            <nav-graph android:value="@navigation/navigation_main" />
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
