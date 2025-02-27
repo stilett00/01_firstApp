@@ -31,6 +31,7 @@ class NewPostFragment : Fragment() {
             }
 
         binding.content.requestFocus()
+
         binding.ok.setOnClickListener {
             if (!binding.content.text.isNullOrBlank()) {
                 val text = binding.content.text.toString()

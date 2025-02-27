@@ -76,7 +76,9 @@ class FeedFragment : Fragment() {
         }
 
         binding.add.setOnClickListener {
-            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
+            viewModel.cancelEdit()
+            findNavController().navigate(
+                R.id.action_feedFragment_to_newPostFragment)
         }
         return binding.root
     }
