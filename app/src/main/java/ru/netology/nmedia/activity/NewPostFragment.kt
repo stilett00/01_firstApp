@@ -13,6 +13,8 @@ import ru.netology.nmedia.viewmodel.PostViewModel
 
 class NewPostFragment : Fragment() {
 
+    val viewModel: PostViewModel by activityViewModels()
+
     companion object {
         var Bundle.postContent by StringArg
     }
@@ -23,7 +25,6 @@ class NewPostFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentNewPostBinding.inflate(layoutInflater, container, false)
-        val viewModel: PostViewModel by activityViewModels()
 
         arguments?.postContent?.let {
                 binding.content.setText(it)

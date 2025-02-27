@@ -62,6 +62,13 @@ class FeedFragment : Fragment() {
                     }
                 )
             }
+
+            override fun onPostTapped(post: Post) {
+                findNavController().navigate(
+                    R.id.action_feedFragment_to_singlePostFragment,
+                    Bundle().apply { putLong("postId", post.id) }
+                )
+            }
         }
         )
 
