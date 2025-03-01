@@ -1,7 +1,5 @@
 package ru.netology.nmedia.adapter
 
-import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +17,7 @@ interface OnInteractionListener {
     fun onRemove(post: Post)
     fun onEdit(post: Post)
     fun onPlayVideo(post: Post)
+    fun onPostTapped(post: Post) {}
 }
 
 class PostsAdapter(
@@ -62,6 +61,10 @@ class PostViewHolder(
 
             share.setOnClickListener {
                 onInteractionListener.onShare(post)
+            }
+
+            root.setOnClickListener {
+                onInteractionListener.onPostTapped(post)
             }
 
             menu.setOnClickListener{
